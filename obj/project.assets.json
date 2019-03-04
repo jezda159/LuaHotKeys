@@ -687,11 +687,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\C#\\LuaHotKey\\ConsoleApp1\\ConsoleApp1.csproj",
-      "projectName": "ConsoleApp1",
-      "projectPath": "D:\\C#\\LuaHotKey\\ConsoleApp1\\ConsoleApp1.csproj",
+      "projectUniqueName": "D:\\C#\\LuaHotKey-v2\\ConsoleApp1\\LuaHotKey.csproj",
+      "projectName": "LuaHotKey",
+      "projectPath": "D:\\C#\\LuaHotKey-v2\\ConsoleApp1\\LuaHotKey.csproj",
       "packagesPath": "C:\\Users\\Mates\\.nuget\\packages\\",
-      "outputPath": "D:\\C#\\LuaHotKey\\ConsoleApp1\\obj\\",
+      "outputPath": "D:\\C#\\LuaHotKey-v2\\ConsoleApp1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

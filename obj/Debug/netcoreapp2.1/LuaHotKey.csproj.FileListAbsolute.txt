@@ -1,0 +1,44 @@
+D:\C#\LuaHotKey\ConsoleApp1\bin\Debug\netcoreapp2.1\LuaHotKey.deps.json
+D:\C#\LuaHotKey\ConsoleApp1\bin\Debug\netcoreapp2.1\LuaHotKey.runtimeconfig.json
+D:\C#\LuaHotKey\ConsoleApp1\bin\Debug\netcoreapp2.1\LuaHotKey.runtimeconfig.dev.json
+D:\C#\LuaHotKey\ConsoleApp1\bin\Debug\netcoreapp2.1\LuaHotKey.dll
+D:\C#\LuaHotKey\ConsoleApp1\bin\Debug\netcoreapp2.1\LuaHotKey.pdb
+D:\C#\LuaHotKey\ConsoleApp1\obj\Debug\netcoreapp2.1\LuaHotKey.csprojAssemblyReference.cache
+D:\C#\LuaHotKey\ConsoleApp1\obj\Debug\netcoreapp2.1\LuaHotKey.csproj.CoreCompileInputs.cache
+D:\C#\LuaHotKey\ConsoleApp1\obj\Debug\netcoreapp2.1\LuaHotKey.AssemblyInfoInputs.cache
+D:\C#\LuaHotKey\ConsoleApp1\obj\Debug\netcoreapp2.1\LuaHotKey.AssemblyInfo.cs
+D:\C#\LuaHotKey\ConsoleApp1\obj\Debug\netcoreapp2.1\LuaHotKey.dll
+D:\C#\LuaHotKey\ConsoleApp1\obj\Debug\netcoreapp2.1\LuaHotKey.pdb
+D:\C#\LuaHotKey - base\ConsoleApp1\bin\Debug\netcoreapp2.1\LuaHotKey.deps.json
+D:\C#\LuaHotKey - base\ConsoleApp1\bin\Debug\netcoreapp2.1\LuaHotKey.runtimeconfig.json
+D:\C#\LuaHotKey - base\ConsoleApp1\bin\Debug\netcoreapp2.1\LuaHotKey.runtimeconfig.dev.json
+D:\C#\LuaHotKey - base\ConsoleApp1\bin\Debug\netcoreapp2.1\LuaHotKey.dll
+D:\C#\LuaHotKey - base\ConsoleApp1\bin\Debug\netcoreapp2.1\LuaHotKey.pdb
+D:\C#\LuaHotKey - base\ConsoleApp1\obj\Debug\netcoreapp2.1\LuaHotKey.csprojAssemblyReference.cache
+D:\C#\LuaHotKey - base\ConsoleApp1\obj\Debug\netcoreapp2.1\LuaHotKey.csproj.CoreCompileInputs.cache
+D:\C#\LuaHotKey - base\ConsoleApp1\obj\Debug\netcoreapp2.1\LuaHotKey.AssemblyInfoInputs.cache
+D:\C#\LuaHotKey - base\ConsoleApp1\obj\Debug\netcoreapp2.1\LuaHotKey.AssemblyInfo.cs
+D:\C#\LuaHotKey - base\ConsoleApp1\obj\Debug\netcoreapp2.1\LuaHotKey.dll
+D:\C#\LuaHotKey - base\ConsoleApp1\obj\Debug\netcoreapp2.1\LuaHotKey.pdb
+D:\C#\LuaHotKey-v1\ConsoleApp1\bin\Debug\netcoreapp2.1\LuaHotKey.deps.json
+D:\C#\LuaHotKey-v1\ConsoleApp1\bin\Debug\netcoreapp2.1\LuaHotKey.runtimeconfig.json
+D:\C#\LuaHotKey-v1\ConsoleApp1\bin\Debug\netcoreapp2.1\LuaHotKey.runtimeconfig.dev.json
+D:\C#\LuaHotKey-v1\ConsoleApp1\bin\Debug\netcoreapp2.1\LuaHotKey.dll
+D:\C#\LuaHotKey-v1\ConsoleApp1\bin\Debug\netcoreapp2.1\LuaHotKey.pdb
+D:\C#\LuaHotKey-v1\ConsoleApp1\obj\Debug\netcoreapp2.1\LuaHotKey.csprojAssemblyReference.cache
+D:\C#\LuaHotKey-v1\ConsoleApp1\obj\Debug\netcoreapp2.1\LuaHotKey.csproj.CoreCompileInputs.cache
+D:\C#\LuaHotKey-v1\ConsoleApp1\obj\Debug\netcoreapp2.1\LuaHotKey.AssemblyInfoInputs.cache
+D:\C#\LuaHotKey-v1\ConsoleApp1\obj\Debug\netcoreapp2.1\LuaHotKey.AssemblyInfo.cs
+D:\C#\LuaHotKey-v1\ConsoleApp1\obj\Debug\netcoreapp2.1\LuaHotKey.dll
+D:\C#\LuaHotKey-v1\ConsoleApp1\obj\Debug\netcoreapp2.1\LuaHotKey.pdb
+D:\C#\LuaHotKey-v2\ConsoleApp1\bin\Debug\netcoreapp2.1\LuaHotKey.deps.json
+D:\C#\LuaHotKey-v2\ConsoleApp1\bin\Debug\netcoreapp2.1\LuaHotKey.runtimeconfig.json
+D:\C#\LuaHotKey-v2\ConsoleApp1\bin\Debug\netcoreapp2.1\LuaHotKey.runtimeconfig.dev.json
+D:\C#\LuaHotKey-v2\ConsoleApp1\bin\Debug\netcoreapp2.1\LuaHotKey.dll
+D:\C#\LuaHotKey-v2\ConsoleApp1\bin\Debug\netcoreapp2.1\LuaHotKey.pdb
+D:\C#\LuaHotKey-v2\ConsoleApp1\obj\Debug\netcoreapp2.1\LuaHotKey.csprojAssemblyReference.cache
+D:\C#\LuaHotKey-v2\ConsoleApp1\obj\Debug\netcoreapp2.1\LuaHotKey.csproj.CoreCompileInputs.cache
+D:\C#\LuaHotKey-v2\ConsoleApp1\obj\Debug\netcoreapp2.1\LuaHotKey.AssemblyInfoInputs.cache
+D:\C#\LuaHotKey-v2\ConsoleApp1\obj\Debug\netcoreapp2.1\LuaHotKey.AssemblyInfo.cs
+D:\C#\LuaHotKey-v2\ConsoleApp1\obj\Debug\netcoreapp2.1\LuaHotKey.dll
+D:\C#\LuaHotKey-v2\ConsoleApp1\obj\Debug\netcoreapp2.1\LuaHotKey.pdb

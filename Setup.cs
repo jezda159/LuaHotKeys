@@ -9,24 +9,19 @@ namespace LuaHotKey
 {
     class Setup
     {
-        /// <summary>
-        /// Keyboard identifiers for mapping the LuaMacros script
-        /// </summary>
-        /// <returns></returns>
         public KeyboardIdentifier KeyboardID()
         {
             /* Code will be revealed once your LuaMacros app is setup
              * otherwise, you can use this one especialy to find it out
              * print_devices will show you avalible keyboards
              * its code is in the string of letters, between two ampersands (&'s)
-             * place it instead of "12341234" and watch if keyboard will 
-             * print yout inputs
+             * place it instead of "12341234" and watch if LuaMacros will print yout inputs
 clear()
-  lmc_device_set_name("your_keyboard", "12341234") 
-  lmc_print_devices()
+lmc_device_set_name("your_keyboard", "12341234") 
+lmc_print_devices()
 
 lmc_set_handler("your_keyboard", function(btn, dir)
-  print("button " .. btn .. " in direction " .. dir)
+    print("button " .. btn .. " in direction " .. dir)
 end
              */
             KeyboardIdentifier hardware_keyboard = new KeyboardIdentifier() { Title = "keyboard", Code = "34736889" };
@@ -37,18 +32,20 @@ end
             return ctech_numpad;
         }
 
-        /// <summary>
-        /// Keyboard setting, used to create the hotkeys
-        /// </summary>
-        /// <returns></returns>
+        
         public Keyboard KeyboardSet() { 
 
             AHKActions ahk = new AHKActions();
-            
-            // Customize these to create custom hotkeys
+
+            /*  ~ Customize these to create custom hotkeys ~
+             * Keyboard nests KeyPresses inside, only specified keyboard will be used in the end.
+             * KeyPresses nest the AutoHotKey functions and logic tobe done when key is pressed.
+             * Every key on specified keyboard that isn't set here will not be functional for
+             * the period of running the LuaMacros code.
+             */
             Keyboard testingKb = new Keyboard("testing", false, new KeyPress[]
             {
-                new KeyPress("1", "pohni", new []
+                new KeyPress("1", "move", new string[]
                 {
                     ahk.MouseMove(100, 100),
                     ahk.MouseMove(150, 200),
@@ -56,36 +53,35 @@ end
                     ahk.MouseMove(250, 400),
                     ahk.MouseMove(300, 500)
                 }),
-                new KeyPress("2", "podminky", new []
+                new KeyPress("2", "if statement", new []
                 {
                     ahk.If("10 < 100", new [] {
 
-                        ahk.Alert("deset je menší než sto", 4)
+                        ahk.Alert("10 is lesser than 100", 4)
 
                     }, new [] {
 
-                        ahk.Alert("deset je vetsi nez sto")
+                        ahk.Alert("10 is greater than 100")
                     })
                 }),
                 new KeyPress("3", "get mouse pos", new []
                 {
                     ahk.GetMousePosition("mouseX", "mouseY"),
-                    ahk.GetPixelRGB("color", "mouseX", "mouseY"),
+                    ahk.GetPixelUnderMouse("color"),
                     ahk.Alert("[%mouseX%, %mouseY%] %color%")
                 }),
-                new KeyPress("4", "show the area of Scratch", new []
+                new KeyPress("4", "show the area around mouse", new []
                 {
                     ahk.MouseSpeed(2),
-                    ahk.CoordMode("Pixel", "Screen"),
-                    ahk.CoordMode("Mouse", "Screen"),
-
+                    ahk.PixelMode("Screen"),
+                    ahk.MouseMode("Screen"),
 
                     ahk.GetMousePosition("mouseX", "mouseY"),
 
-                    ahk.DefineVariable("nX", "1310"),
-                    ahk.DefineVariable("nY", "250"),
-                    ahk.DefineVariable("mX", "1900"),
-                    ahk.DefineVariable("mY", "650"),
+                    ahk.Variable("nX", "mouseX + 30"),
+                    ahk.Variable("nY", "mouseY + 30"),
+                    ahk.Variable("mX", "mouseX - 30"),
+                    ahk.Variable("mY", "mouseY - 30"),
 
                     ahk.MouseMove("nX", "nY"),
                     ahk.MouseMove("nX", "mY"),
@@ -94,22 +90,36 @@ end
 
                     ahk.MouseMove("mouseX", "mouseY")
                 }),
-                new KeyPress("5", "click tha Scratch", new []
+                new KeyPress("5", "duplicate selection 5 times", new []
                 {
-                    ahk.MouseSpeed(0),
-                    ahk.CoordMode("Pixel", "Screen"),
-                    ahk.CoordMode("Mouse", "Screen"),
-
-                    ahk.SearchPixelRGB("foundX", "foundY", "1310", "250", "1900", "650", "19ABFF", 4, new []
-                    {
-                        ahk.Raw("MouseClick, left, foundX, foundY")
-                    }, new [] { "" })
+                    ahk.Keys(new [] {"^c" }), // Ctrl+C
+                    ahk.Repeat(5, new [] {
+                        ahk.Keys("^v") //Ctrl+V
+                    })
+                }),
+                new KeyPress("6", "export as PNG", new [] {
+                    ahk.Keys("^+e"),
+                    ahk.Wait(1000),
+                    ahk.Keys("{right}{right}{delete}{delete}{delete}png"),
+                    ahk.MouseMode("Screen"),
+                    ahk.Click(1200, 350),
+                    ahk.ClickDouble(1000, 480),
+                    ahk.Click(1300, 830),
+                    ahk.MouseMove(1000, 740)
                 }),
 
-                new KeyPress("C", "enter", new []
-                {
-                    ahk.Keys("{enter}")
-                })
+                new KeyPress("+", "Ctrl+V", new [] { ahk.Keys("^v") }),
+                new KeyPress("-", "Ctrl+X", new [] { ahk.Keys("^x") }),
+
+                new KeyPress("A", "Beep Beep", new [] {
+                    ahk.Beep(500, 100),
+                    ahk.Wait(200),
+                    ahk.Beep(1000, 100),
+                }),
+                new KeyPress("B", "drag", new [] {
+                    ahk.MouseDrag("left", 0, 0, 200, 200)
+                }),
+                new KeyPress("C", "just enter", new [] { ahk.Keys("{enter}") })
             });
 
             Keyboard gimpKb = new Keyboard("GIMP", true, new KeyPress[]
@@ -249,10 +259,11 @@ end
                 })
             });
 
-            // thi skeyboard will be used it final setup
+            // This keyboard will be used it final setup
             Keyboard useThis = testingKb;
-            
-            //Customize final directory, (blank uses the root of app)
+
+            // Customize final directory, (blank uses the root of app)
+            // Remember to have "LHKPasser.txt" file in that directory
             useThis.FilePath = "D:/C#/LuaHotKey-v2";
 
             return useThis;

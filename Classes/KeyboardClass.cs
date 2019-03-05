@@ -11,21 +11,30 @@ namespace LuaHotKey.Classes
         private KeyPress[] keyPresses { get; set; }
 
         public string App { get; set; }
-        public bool UseHeaderSearch { get; set; }
+        public bool UseHeaderSearch { get; set; } = true;
 
         public string FilePath { get; set; } = AppDomain.CurrentDomain.BaseDirectory;
         private string fileName = "LHKPasser";
 
-
+        /// <summary>
+        /// Setup for single Keyboard nest
+        /// </summary>
+        /// <param name="app">Name of the keyboard setup</param>
+        /// <param name="KeyPresses">Nest for KeyPresses</param>
         public Keyboard(string app, KeyPress[] KeyPresses)
         {
             name = setup.KeyboardID().Title;
             code = setup.KeyboardID().Code;
             App = app;
-            UseHeaderSearch = true;
             keyPresses = KeyPresses;
         }
 
+        /// <summary>
+        /// Setup for single Keyboard nest
+        /// </summary>
+        /// <param name="app">Name of the keyboard setup</param>
+        /// <param name="useHeaderSearch">Make scripts work only inside window, which header contains previous "app" string</param>
+        /// <param name="KeyPresses">Nest for KeyPresses</param>
         public Keyboard(string app, bool useHeaderSearch, KeyPress[] KeyPresses)
         {
             name = setup.KeyboardID().Title;
@@ -35,6 +44,7 @@ namespace LuaHotKey.Classes
             keyPresses = KeyPresses;
         }
 
+        // Renders every LuaMacros line of code
         public string luaOutside()
         {
             string luaSet = "";
@@ -42,25 +52,25 @@ namespace LuaHotKey.Classes
             foreach (KeyPress kp in keyPresses)
                 luaSet += kp.luaInside();
 
-            luaSet = RemoveLastCommaFrom(luaSet);
+            luaSet = removeLastCommaFrom(luaSet);
 
             return FillLua(luaSet);
         }
 
+        // Renders whole AutoHotKeys script
         public string ahkOutside()
         {
             string ahkSet = "";
 
             foreach (KeyPress kp in keyPresses)
                 ahkSet += kp.ahkInside();
-
-            //Remove "else if" from first line
-            ahkSet = ahkSet.Remove(0, 9);
-            ahkSet = "  If" + ahkSet;
+            
+            ahkSet = removeFirstElseIf(ahkSet);
 
             return FillAhk(ahkSet);
         }
 
+        // Structure used to wrap the written scripts
         private string FillLua(string luaInside)
         {
             string o = "\n";
@@ -93,6 +103,7 @@ namespace LuaHotKey.Classes
             return outcome;
         }
 
+        // Structure used to wrap the written scripts
         private string FillAhk(string ahkInside)
         {
             string o = "\n";
@@ -114,14 +125,22 @@ namespace LuaHotKey.Classes
                 ahkInside +
                 "Return" + d +
 
-                AddTippy +
+                "Tippy(tipsHere, wait:= 1000)" + o +
+                "{" + o +
+                "  ToolTip, %tipsHere% HK,,,8" + o +
+                "  SetTimer, noTip, %wait%" + o +
+                "}" + o +
+                "noTip:" + o +
+                "  ToolTip,,,,8" + o +
+                "return" + d +
 
-                "#IfWinActive";
+            "#IfWinActive";
 
             return outcome;
         }
 
-        private string RemoveLastCommaFrom(string s)
+        // Cleans up the generated LuaMacros script to make it work
+        private string removeLastCommaFrom(string s)
         {
             int len = s.Length - 1;
 
@@ -138,13 +157,10 @@ namespace LuaHotKey.Classes
             return s;
         }
 
-        private string AddTippy => "Tippy(tipsHere, wait:= 1000) \n" +
-            "{ \n" +
-            "ToolTip, %tipsHere% HK,,,8 \n" +
-            "SetTimer, noTip, %wait% \n" +
-            "} \n" +
-            "noTip: \n" +
-            "  ToolTip,,,,8 \n" +
-            "return \n\n";
+        // Cleans up the generated AutoHotKey script to make it work
+        private string removeFirstElseIf(string s)
+        {
+            return "  If" + s.Remove(0, 9);
+        }
     }
 }

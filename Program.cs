@@ -10,14 +10,14 @@ namespace LuaHotKey
         {
             Setup setup = new Setup();
 
-            //Use the keyboard selected in setup 
+            // Use the keyboard selected in setup 
             Keyboard keyboard = setup.KeyboardSet();
             
-            //Present the generated scrpts in console
+            // Present the generated scrpts in console
             Console.WriteLine(keyboard.luaOutside() + "\n\n\n" + keyboard.ahkOutside());
 
-            //Ask to generate the comleted files
-            Console.WriteLine("\n\nAre you happy with results? y/n");
+            // Ask to generate the comleted files
+            Console.WriteLine($"\n\n'{keyboard.App}' was succesfully loaded.\nGenerate files? y/n");
             string buildIT = Console.ReadLine();
             
             if (buildIT == "y")
@@ -32,7 +32,7 @@ namespace LuaHotKey
 
             Console.ReadLine();
 
-            //An attempt to save files to desired path
+            // An attempt to save files to desired path
             bool SaveFiles(Keyboard kb)
             {
                 bool isDone = false;

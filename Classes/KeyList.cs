@@ -9,6 +9,19 @@ namespace LuaHotKey.Classes
 
         public KeyList()
         {
+            /* These keys are setup for my specific usecase, use this Lua code:
+clear()
+lmc_device_set_name("your_keyboard", "12341234") 
+lmc_print_devices()
+
+lmc_set_handler("your_keyboard", function(btn, dir)
+  print("button " .. btn .. " in direction " .. dir)
+end
+             * to find your preffered key codes. Every key can be labeled personaly,
+             * i have labeled no-numerical keys on my numpad with alphabet to 
+             * make it easier to use.
+             */
+
             //Both-way-dictionary for keys
             keyList = new Bictionary<int, string>()
             {

@@ -1,9 +1,5 @@
-﻿using LuaHotKey.Classes;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
+﻿using System;
+using LuaHotKey.Classes;
 
 namespace LuaHotKey
 {

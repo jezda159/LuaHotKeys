@@ -11,19 +11,19 @@ namespace LuaHotKey
             Setup setup = new Setup();
 
             // Use the keyboard selected in setup 
-            Keyboard keyboard = setup.KeyboardSet();
+            Keyboard selectedKeyboard = setup.KeyboardSet();
             
             // Present the generated scrpts in console
-            Console.WriteLine(keyboard.luaOutside() + "\n\n\n" + keyboard.ahkOutside());
+            Console.WriteLine($"{selectedKeyboard.luaOutside()} \n\n\n {selectedKeyboard.ahkOutside()}");
 
             // Ask to generate the comleted files
-            Console.WriteLine($"\n\n'{keyboard.App}' was succesfully loaded.\nGenerate files? y/n");
+            Console.WriteLine($"\n\n'{selectedKeyboard.App}' was succesfully loaded.\nGenerate files? y/n");
             string buildIT = Console.ReadLine();
             
             if (buildIT == "y")
             {
-                bool success = SaveFiles(keyboard);
-                Console.WriteLine( (success) ? "All probably went right, your files are in '" + keyboard.FilePath + "'" : "Files are NOT saved" );
+                bool success = SaveFiles(selectedKeyboard);
+                Console.WriteLine( (success) ? $"All probably went right, your files are in '{selectedKeyboard.FilePath}'" : "Files are NOT saved" );
             }
             else
             {
@@ -35,8 +35,6 @@ namespace LuaHotKey
             // An attempt to save files to desired path
             bool SaveFiles(Keyboard kb)
             {
-                bool isDone = false;
-
                 if (kb.App == "")
                     kb.App = "lhk-generated-file";
                 
@@ -49,11 +47,11 @@ namespace LuaHotKey
                     File.WriteAllText(AutoHotKeyFilePath, kb.ahkOutside());
                     if (File.Exists(AutoHotKeyFilePath))
                     {
-                        isDone = true;
+                        return true;
                     }
                 }
                 
-                return isDone;
+                return false;
             }
         }
     }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LuaHotKey
+namespace LuaHotKey.Classes
 {
     public class AHKActions
     {

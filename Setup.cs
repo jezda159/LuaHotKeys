@@ -258,7 +258,7 @@ end
             // This keyboard will be used it final setup
             Keyboard useThis = testingKb;
 
-            // Customize final directory, (blank uses the root of app)
+            // Customize final directory, (if blank, then uses the root of this app)
             // Remember to have "LHKPasser.txt" file in that directory
             useThis.FilePath = "D:/C#/LuaHotKey-v2";
 

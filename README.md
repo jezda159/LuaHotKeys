@@ -11,32 +11,41 @@ You need these to make the generated files work:
 
 ## Quick example to get you interested:
 ```
-Keyboard hotKeyboard = new Keyboard("fantech", "A3243CA", "GIMP", new KeyPress[] 
+Keyboard hotkeyBoard = new Keyboard("GIMP 2", true, new KeyPress[] 
 {
-    new KeyPress(96, "0", "", "empty", new string[] {
-    }),
-    new KeyPress(97, "1", "fast", "cut", new string[] {
+    new KeyPress("1", "fast", "cut", new string[] {
         "i"
     }),
-    new KeyPress(98, "2", "fast", "remove", new string[] {
+    new KeyPress("2", "fast", "remove", new [] {
         ahk.Keys("+e")
     }),
-    new KeyPress(101, "5", "default", "osamostatnit", new string[] {
+	new KeyPress("3", "get mouse position and color", new [] {
+        ahk.GetMousePosition("mouseX", "mouseY"),
+        ahk.GetPixelUnderMouse("color"),
+        ahk.Alert("[%mouseX%, %mouseY%] %color%")
+    }),
+    new KeyPress("4", "export as png", new [] {
+        ahk.Keys("^+e"),
+        ahk.Wait(1000),
+        ahk.Keys("{right}{right}{delete}{delete}{delete}png"),
         ahk.MouseMode("Screen"),
-        ahk.Click(1800, 900, "right"),
-        ahk.Click(1700, 380, "left"),
-        ahk.Keys("^v"),
-        ahk.MouseMode("Window"),
-        ahk.Click(300, 50, "left"),
-        ahk.Click(300, 180, "left")
+        ahk.Click(1200, 350, "left"),
+        ahk.Click(1000, 510, "2"),
+        ahk.Click(1300, 830, "left"),
+        ahk.MouseMove(1000, 740)
     })
 }
+
 ```
 
 ## Understanding parts of project
 
 Basic configuration of the hotkeys is all inside the Setup.cs file. All other things are for piecing together the scripts.
 You connect your secondary keyboard and using LuaMacros find it's code and set it into the app. Then add a new keyboard, fill it with keypresses and set the AutoHotKey actions that you want to do. Run the project, open the generated files.
+
+You'll probably need to update the keycodes to fit other types of keyboards out there, this can also be done trough LuaMacros.
+
+You can add any AutoHotKey function you'd like or update the main body of scripts.
 
 ### Helpers
 
@@ -52,7 +61,7 @@ As you can see, only Alt keys have different chars, program can work with that a
  * Add double-click functionality
  * Create multi copy&paste functionality
  * Allow multiple keyboards by default
- * More AutoHotkey functions
+ * Add more AutoHotkey functions
 
 ## Authors
 
